@@ -1,0 +1,41 @@
+services:
+  next-ssr:
+    build:
+      context: .
+      dockerfile: ./apps/next-ssr/Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - ssr-network
+
+  angular-ssr:
+    build:
+      context: .
+      dockerfile: ./apps/angular-ssr/Dockerfile
+    ports:
+      - '4000:4000'
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - ssr-network
+
+  nuxt-ssr:
+    build:
+      context: .
+      dockerfile: ./apps/nuxt-ssr/Dockerfile
+    ports:
+      - '5000:5000'
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - ssr-network
+
+networks:
+  ssr-network:
+    driver: bridge
+

@@ -1,0 +1,12 @@
+{
+  "name": "@ssr-comparison/tailwind-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
+
