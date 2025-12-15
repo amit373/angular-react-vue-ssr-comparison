@@ -1,6 +1,35 @@
-# SSR Comparison Suite
+# ⚡ SSR Comparison Suite
 
-Production-ready Server-Side Rendering comparison between Next.js 16, Angular 21, and Nuxt 4.2.
+![SSR](https://img.shields.io/badge/SSR-100%25-success)
+![SEO](https://img.shields.io/badge/SEO-Optimized-brightgreen)
+![Monorepo](https://img.shields.io/badge/Monorepo-Turborepo-blue)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)
+![Node](https://img.shields.io/badge/Node-20+-339933)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
+A **production-grade Server-Side Rendering (SSR) comparison** between **Next.js 16**, **Angular 21**, and **Nuxt 4.2**, built using a **Turbo monorepo**.
+
+This repository implements the **same real-world application** across all three frameworks to objectively compare **performance, SEO, architecture, and developer experience** — based on **real metrics, not opinions**.
+
+---
+
+## 🔍 What this repository proves
+
+This project exists to answer one practical question:
+
+> **Which SSR framework should I choose — and why?**
+
+Instead of demos or opinion-driven examples, this repository compares frameworks by enforcing:
+
+- Identical routes and features
+- Identical UI and shared design system
+- Identical data source (JSONPlaceholder)
+- 100% server-side data fetching
+- Same performance constraints
+
+All conclusions are backed by **measured Web Vitals and runtime metrics**.
+
+---
 
 ## 🚀 Quick Start
 
@@ -10,165 +39,140 @@ pnpm install
 # or
 make install
 
-# Development (all apps)
+# Development
 make dev
-# or
-pnpm dev
 
-# Build all apps
+# Build
 make build
-# or
-pnpm build
 
-# Start production servers
+# Start production
 make start
-# or
-pnpm start
 
-# Run tests
+# Test
 make test
-# or
-pnpm test
 
-# Lint & Format
+# Lint & format
 make lint
 make format
 ```
 
+---
+
 ## 🐳 Docker
 
 ```bash
-# Build Docker images
 make docker-build
-
-# Start all services
 make docker-up
-
-# View logs
 make docker-logs
-
-# Stop services
 make docker-down
-
-# Clean up
 make docker-clean
 ```
 
-**Ports:**
-- Next.js: `http://localhost:3000`
-- Angular: `http://localhost:4000`
-- Nuxt: `http://localhost:5000`
+**Ports**
+- Next.js → http://localhost:3000
+- Angular → http://localhost:4000
+- Nuxt → http://localhost:5000
 
-## 🎯 Individual App Commands
-
-### Next.js
-```bash
-make dev-next        # Development
-make build-next      # Build
-make start-next      # Production
-```
-
-### Angular
-```bash
-make dev-angular     # Development
-make build-angular   # Build
-make start-angular   # Production
-```
-
-### Nuxt
-```bash
-make dev-nuxt        # Development
-make build-nuxt      # Build
-make start-nuxt      # Production
-```
+---
 
 ## 📦 Monorepo Structure
 
+```text
+apps/
+  next-ssr/        # Next.js 16 App Router
+  angular-ssr/     # Angular 21 Universal SSR
+  nuxt-ssr/        # Nuxt 4.2 Full SSR
+
+packages/
+  ui/              # Shared UI components
+  api/             # Server-side API clients
+  types/           # TypeScript types
+  utils/           # Shared helpers
+  tailwind-config/ # Tailwind config
+  eslint-config/   # ESLint rules
+  tsconfig/        # TS configs
 ```
-├── apps/
-│   ├── next-ssr/          # Next.js 16 App Router (Port 3000)
-│   ├── angular-ssr/       # Angular 21 SSR (Port 4000)
-│   └── nuxt-ssr/          # Nuxt 4.2 Full SSR (Port 5000)
-├── packages/
-│   ├── ui/                # Shared design system & components
-│   ├── api/               # API clients & data fetchers
-│   ├── types/             # TypeScript interfaces & types
-│   ├── utils/             # Shared utilities & helpers
-│   ├── tailwind-config/   # Shared Tailwind configuration
-│   ├── eslint-config/     # Shared ESLint configuration
-│   └── tsconfig/          # Shared TypeScript configurations
-```
+
+---
 
 ## 🎯 Features
 
 - ✅ 100% Server-Side Rendering
-- ✅ SEO Optimized (Meta tags, OG, Twitter cards, JSON-LD)
-- ✅ Dark Mode Support
-- ✅ Fully Responsive Design
-- ✅ WCAG 2.2 AA Accessibility
-- ✅ Performance Optimized
-- ✅ Error Handling & Fallbacks
-- ✅ Docker Support with Multi-Stage Builds
-- ✅ Comprehensive Testing (Vitest)
-- ✅ Shared Component Library
-- ✅ Monorepo with Turborepo
+- 🔍 SEO optimized (Meta, OG, JSON-LD, Canonical)
+- 🎨 Tailwind CSS + Dark Mode
+- 📱 Fully responsive UI
+- ♿ WCAG 2.2 AA accessibility
+- ⚡ High performance & minimal hydration
+- 🚨 Error handling & fallback UI
+- 🧪 Unit testing (Vitest)
+- 🐳 Docker multi-stage builds
+- 🚀 Turborepo caching
+
+---
 
 ## 📊 Routes
 
-All three apps implement identical routes:
-- `/` - Landing page with framework metrics
-- `/posts` - Posts list with pagination
-- `/posts/:id` - Individual post details
-- `/users` - Users directory
-- `/users/:id` - User profile with posts
-- `/albums` - Albums gallery
-- `/albums/:id` - Album details with photos
-- `/photos` - Photo gallery with lightbox
-- `/todos` - Interactive todos list
-- `/about` - About page with framework info
+- / – Landing + metrics
+- /posts – Posts list
+- /posts/:id – Post details + comments
+- /users – Users
+- /users/:id – User profile
+- /albums – Albums
+- /albums/:id – Album details
+- /photos – Photo gallery
+- /todos – Todos
+- /about – Framework comparison
+
+---
+
+## 📈 Performance & SEO Strategy
+
+- SSR-only data fetching
+- Streaming SSR
+- Route-level code splitting
+- HTTP caching (ETag / Cache-Control)
+- Lazy images
+- CDN-ready assets
+
+### Measured Metrics
+- TTFB
+- FCP
+- LCP
+- Hydration time
+- JS bundle size
+
+Metrics are displayed on each landing page.
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Frameworks
-- **Next.js**: 16.0.8 (App Router, React Server Components)
-- **Angular**: 21 (Standalone Components, SSR)
-- **Nuxt**: 4.2 (Vue 3, Full SSR)
+- Next.js 16
+- Angular 21
+- Nuxt 4.2
 
-### Core Technologies
-- **Language**: TypeScript 5.4+
-- **Styling**: Tailwind CSS 3.4
-- **Animations**: Framer Motion
-- **Package Manager**: PNPM 9.0+
-- **Monorepo**: Turborepo 2.0
-- **Testing**: Vitest 1.2
-- **Runtime**: Node.js 20+
+### Core
+- TypeScript 5+
+- Tailwind CSS
+- PNPM
+- Turborepo
+- Docker
+- Node.js 20+
 
-### Shared Packages
-- `@ssr-comparison/ui` - Shared component library
-- `@ssr-comparison/api` - API clients & data fetching
-- `@ssr-comparison/types` - TypeScript definitions
-- `@ssr-comparison/utils` - Common utilities
-- `@ssr-comparison/tailwind-config` - Tailwind configuration
-- `@ssr-comparison/eslint-config` - ESLint rules
-- `@ssr-comparison/tsconfig` - TypeScript configs
+---
 
-## 🔧 Development
+## 🎯 When to choose which framework
 
-### Prerequisites
-- Node.js 20 or higher
-- PNPM 9.0 or higher
+| Scenario | Recommended |
+|--------|------------|
+| Content-heavy SEO | Next.js / Nuxt |
+| Enterprise-scale apps | Angular |
+| Hybrid DX + performance | Next.js |
+| Vue ecosystem | Nuxt |
 
-### Environment
-All apps run in development mode with hot reload enabled. Ports are automatically cleaned before starting to avoid conflicts.
-
-### Project Commands
-```bash
-make help           # Show all available commands
-make clean          # Clean build artifacts
-pnpm format         # Format code with Prettier
-```
+---
 
 ## 📝 License
 
 MIT
-
